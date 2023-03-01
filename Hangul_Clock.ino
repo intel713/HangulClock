@@ -2,15 +2,16 @@
 #include <RtcDS1302.h>
 #include <Adafruit_NeoPixel.h>
 
+//RTC 모듈에 연결할 핀 구성
 ThreeWire myWire(3,2,4); // IO, SCLK, CE(DAT, CLK, RST)
 RtcDS1302<ThreeWire> Rtc(myWire);
 
-#define LED_PIN 5
-#define LED_COUNT 36
+#define LED_PIN 5 //네오픽셀 Data 단자와 연결할 핀
+#define LED_COUNT 36 //네오픽셀 LED 개수 (6 X 6)
 
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
-/*
+/* 위치 구성
 오 전 후 한 두 세
 네 다 섯 여 섯 일
 곱 여 덟 아 홉 열
@@ -26,6 +27,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 30 31 32 33 34 35
 */
 
+//색과 밝기 설정
 int r = 255;
 int g = 255;
 int b = 255;

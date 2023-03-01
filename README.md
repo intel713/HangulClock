@@ -3,7 +3,9 @@
 
 # 사용 부품
 1 * Arduino Nano
+
 36 * Neopixel(IP30, 60Led/m)
+
 1 * RTC모듈(DS1302)
 
 # 참고사항

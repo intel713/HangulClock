@@ -17,6 +17,12 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 #define AM_COLOR strip.Color(255, 255, 32)
 #define PM_COLOR strip.Color(96, 64, 255)
 
+#define hour_startH 7000
+#define hour_endH 30000
+
+#define minute_startH 500
+#define minute_endH 6000
+
 uint32_t hour_color = strip.Color(255, 255, 255);
 uint32_t minute_color = strip.Color(225, 115, 44);
 
@@ -71,7 +77,7 @@ void loop() {
       setHour();
       setMinute();
       strip.show();
-      delay(10);
+      delay(15);
     }
   }
 }
@@ -220,6 +226,6 @@ void setColor()
   // }
 
 
-  hour_color = strip.ColorHSV(map(h, 0, 23, 35000, 51000), 255, 255);
-  minute_color = strip.ColorHSV(map(m, 0, 59, 8000, 11000), 127, 255);
+  hour_color = strip.ColorHSV(map(h, 0, 23, 7000, 55000), 255, 255);
+  minute_color = strip.ColorHSV(map(m, 0, 59, 500, 6000), 255, 255);
 }

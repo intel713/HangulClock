@@ -18,7 +18,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 #define PM_COLOR strip.Color(96, 64, 255)
 
 uint32_t hour_color = strip.Color(255, 255, 255);
-uint32_t minute_color = strip.Color(255, 255, 255);
+uint32_t minute_color = strip.Color(225, 115, 44);
 
 /* 위치 구성
 오 전 후 한 두 세
@@ -51,29 +51,29 @@ void setup() {
 }
 
 void loop() {
-  strip.clear();
-  setTime();
-  setAmPm();
-  setColor();
-  setHour();
-  setMinute();
-  strip.show();
-  delay(100);
+  // strip.clear();
+  // setTime();
+  // setColor();
+  // setAmPm();
+  // setHour();
+  // setMinute();
+  // strip.show();
+  // delay(100);
 
-  // for (int i = 0; i <= 23; i++) {
-  //   for (int j = 0; j <= 59; j++) {
-  //     h = i;
-  //     m = j;
+  for (int i = 0; i <= 23; i++) {
+    for (int j = 0; j <= 59; j++) {
+      h = i;
+      m = j;
 
-  //     strip.clear();
-  //     setAmPm();
-  //     setColor();
-  //     setHour();
-  //     setMinute();
-  //     strip.show();
-  //     delay(10);
-  //   }
-  // }
+      strip.clear();
+      setAmPm();
+      setColor();
+      setHour();
+      setMinute();
+      strip.show();
+      delay(10);
+    }
+  }
 }
 
 
@@ -172,42 +172,54 @@ void setMinute()
 
 void setColor()
 {
-  if (am == true)
-  {
-    if (0 <= h and h < 6 or h == 12)
-    {
-      hour_color = strip.Color(9, 24, 63);
-    }
-    else if (6 <= h and h < 7)
-    {
-      hour_color = strip.Color(170, 113, 132);
-    }
-    else if (7 <= h and h < 9)
-    {
-      hour_color = strip.Color(235, 216, 131);
-    }
-    else if (9 <= h and h < 12)
-    {
-      hour_color = strip.Color(146, 204, 252);
-    }
-  }
-  else
-  {
-    if (0 <= h and h < 4 or h == 12)
-    {
-      hour_color = strip.Color(60, 131, 210);
-    }
-    else if (4 <= h and h < 6)
-    {
-      hour_color = strip.Color(225, 115, 44);
-    }
-    else if (6 <= h and h < 8)
-    {
-      hour_color = strip.Color(99, 80, 135);
-    }
-    else if (8 <= h and h < 12)
-    {
-      hour_color = strip.Color(9, 24, 63);
-    }
-  }
+  // if (am == true)
+  // {
+  //   if (0 <= h and h < 6 or h == 12)
+  //   {
+  //     hour_color = strip.Color(9, 24, 63);
+  //     //minute_color = strip.Color(9, 24, 63);
+  //   }
+  //   else if (6 <= h and h < 7)
+  //   {
+  //     hour_color = strip.Color(170, 113, 132);
+  //     //minute_color = strip.Color(170, 113, 132);
+  //   }
+  //   else if (7 <= h and h < 9)
+  //   {
+  //     hour_color = strip.Color(235, 216, 131);
+  //     //minute_color = strip.Color(235, 216, 131);
+  //   }
+  //   else if (9 <= h and h < 12)
+  //   {
+  //     hour_color = strip.Color(146, 204, 252);
+  //     //minute_color = strip.Color(146, 204, 252);
+  //   }
+  // }
+  // else
+  // {
+  //   if (0 <= h and h < 4 or h == 12)
+  //   {
+  //     hour_color = strip.Color(60, 131, 210);
+  //     //minute_color = strip.Color(60, 131, 210);
+  //   }
+  //   else if (4 <= h and h < 6)
+  //   {
+  //     hour_color = strip.Color(225, 115, 44);
+  //     //minute_color = strip.Color(225, 115, 44);
+  //   }
+  //   else if (6 <= h and h < 8)
+  //   {
+  //     hour_color = strip.Color(99, 80, 135);
+  //     //minute_color = strip.Color(99, 80, 135);
+  //   }
+  //   else if (8 <= h and h < 12)
+  //   {
+  //     hour_color = strip.Color(9, 24, 63);
+  //     //minute_color = strip.Color(9, 24, 63);
+  //   }
+  // }
+
+
+  hour_color = strip.ColorHSV(map(h, 0, 23, 35000, 51000), 255, 255);
+  minute_color = strip.ColorHSV(map(m, 0, 59, 8000, 11000), 127, 255);
 }

@@ -10,3 +10,6 @@
 업로드를 하려면 아두이노 IDE 라이브러리에 `Adafruit_NeoPixel`, `ThreeWire` , `RtcDS1302`(`DS1302`의 경우) / `DS3231`(`DS3231`의 경우)라이브러리가 포함되어 있어야 함.<br>
 `DS3231` 라이브러리 [GitHub 링크](https://github.com/NorthernWidget/DS3231)<br>
 ShortCable:네오픽셀 간 케이블 연결 길이를 최소화 하기 위해 네오픽셀을 지그재그로 배치한 버전(파일 내 LED 인덱스 배치 주석 참고).<br>
+
+
+__왜인진 모르겠는데 DS3231 라이브러리가 제대로 안되는 케이스가 동아리 프로젝트 중 생겨서 Adafruit의 RTClib 사용.__

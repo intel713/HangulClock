@@ -57,15 +57,16 @@ void setup() {
 }
 
 void loop() {
-  // strip.clear();
-  // setTime();
-  // setColor();
-  // setAmPm();
-  // setHour();
-  // setMinute();
-  // strip.show();
-  // delay(100);
+  strip.clear();
+  setTime();
+  setColor();
+  setAmPm();
+  setHour();
+  setMinute();
+  strip.show();
+  delay(100);
 
+  /*
   for (int i = 0; i <= 23; i++) {
     for (int j = 0; j <= 59; j++) {
       h = i;
@@ -80,6 +81,7 @@ void loop() {
       delay(5);
     }
   }
+  */
 }
 
 
